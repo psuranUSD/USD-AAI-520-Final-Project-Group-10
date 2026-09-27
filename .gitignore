@@ -12,7 +12,7 @@ wheels/
 # Environment / secrets
 .env
 
-# Data (everyone recreates it from notebooks; never commit)
+# Data (recreated by the notebooks)
 /data
 
 # Notebook caches

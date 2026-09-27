@@ -13,3 +13,24 @@ An agentic financial analysis system: given a stock ticker, it plans its researc
 
 - Pravin Suranthiran
 - Emma Bishop
+
+## Repository Structure
+
+- `notebooks/` — analysis notebooks (project deliverables)
+- `data/raw/`, `data/processed/` — data created by the notebooks (not committed)
+- `docs/` — project documentation; [`sources.md`](docs/sources.md) records every dataset and API used, with APA 7 citations
+- `report/` — final written report
+
+## Setup
+
+Requires [uv](https://docs.astral.sh/uv/). Install dependencies:
+
+```bash
+uv sync
+```
+
+The notebooks in `notebooks/` run in any Jupyter-compatible editor (VS Code, JupyterLab, etc.); select the interpreter or kernel from the `.venv` this creates.
+
+---
+
+*AI Use Notice: AI was used to assist in the development of this project, but all analysis and conclusions have been verified and directed by the authors.*

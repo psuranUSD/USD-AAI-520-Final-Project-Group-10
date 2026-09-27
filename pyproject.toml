@@ -1,0 +1,11 @@
+[project]
+name = "usd-aai-520-final-project-group-10"
+version = "0.1.0"
+description = "Investment Research Agent — an agentic financial analysis system for the AAI-520 Final Team Project (Group 10)"
+readme = "README.md"
+authors = [
+    { name = "Pravin Suranthiran" },
+    { name = "Emma Bishop" },
+]
+requires-python = ">=3.14"
+dependencies = []

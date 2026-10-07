@@ -15,5 +15,8 @@ wheels/
 # Data (recreated by the notebooks)
 /data
 
+# Notebook run state (recreated by the notebook)
+notebooks/investment_agent_memory.json
+
 # Notebook caches
 .ipynb_checkpoints/

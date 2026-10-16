@@ -37,3 +37,43 @@ All datasets and APIs used in this project's notebooks are documented here.
 - **License:** Apache-2.0.
 
 - **Citation (APA 7):** Aroussi, R. (n.d.). *yfinance* [Computer software]. GitHub. https://github.com/ranaroussi/yfinance
+
+## 4. FRED (Federal Reserve Economic Data)
+
+- **Location:** <https://fred.stlouisfed.org> (public CSV endpoint `fredgraph.csv`, no API key)
+
+- **Summary:** The Federal Reserve Bank of St. Louis's economic database of more than 800,000 US and international series. This project reads one series, `DGS10` (10-Year Treasury Constant Maturity Rate, daily), as a macro-context feature.
+
+- **License:** Public domain (US federal government data); FRED terms of use apply.
+
+- **Citation (APA 7):** Board of Governors of the Federal Reserve System. (n.d.). *10-Year Treasury Constant Maturity Rate* [Data set]. Federal Reserve Bank of St. Louis. https://fred.stlouisfed.org/series/DGS10
+
+## 5. Google Gemini API
+
+- **Location:** <https://ai.google.dev/gemini-api>
+
+- **Summary:** Google's generative-model API, used at temperature 0 throughout. `gemini-3.5-flash-lite` serves three roles in the index-evaluation notebook (statistical adjudication, the final research decision, decision auditing) and six agent roles in the ticker-agent notebook (concept proposal, planning/routing, term-quality inspection, transmission-channel judgment, the final decision, and decision auditing); the model self-reports a March 2026 training-data cutoff. The proposal notebook additionally uses `gemini-3.1-flash-lite` for a zero-shot sentiment comparison and a monthly portfolio backtest. Replies are cached on disk keyed by prompt hash, so reruns make no calls.
+
+- **License:** Google Generative AI API Terms of Service.
+
+- **Citation (APA 7):** Google. (n.d.). *Gemini API* [Computer software]. https://ai.google.dev/gemini-api
+
+## 6. spaCy English models (en_core_web_sm, en_core_web_md)
+
+- **Location:** <https://github.com/explosion/spacy-models/releases> (installed as packages `en-core-web-sm`, `en-core-web-md`, version 3.8.0)
+
+- **Summary:** Pretrained spaCy pipelines for English. The ticker pipeline uses `en_core_web_sm` for part-of-speech tagging, lemmatization, and named-entity recognition on news headlines, and `en_core_web_md` for its 300-dimensional static word vectors, which score candidate terms against concept and market-process seed sets before theme clustering.
+
+- **License:** MIT.
+
+- **Citation (APA 7):** Honnibal, J., Montani, I., Van Landeghem, S., & Boyd, A. (2020). *en_core_web_sm / en_core_web_md (3.8.0)* [Computer software]. Explosion / GitHub. https://github.com/explosion/spacy-models/releases. Word vectors from: Pennington, J., Socher, R., & Manning, C. D. (2014). GloVe: Global vectors for word representation. *Proceedings of the 2014 Conference on Empirical Methods in Natural Language Processing (EMNLP)*, 1532–1543. https://doi.org/10.3115/v1/D14-1162
+
+## 7. SEC EDGAR
+
+- **Location:** <https://www.sec.gov/edgar> (submissions API: `https://data.sec.gov/submissions/CIK##########.json`)
+
+- **Summary:** The U.S. Securities and Exchange Commission's Electronic Data Gathering, Analysis, and Retrieval system. This project reads one endpoint per ticker — the company submissions JSON, which lists each filing's type (10-K, 10-Q, 8-K) and filing date — as business-context input for the earnings analysis agent. Requests identify themselves with a `User-Agent` header, and responses are cached on disk, so reruns make no calls.
+
+- **License:** Public domain (US federal government data); SEC fair-access terms apply.
+
+- **Citation (APA 7):** U.S. Securities and Exchange Commission. (n.d.). *EDGAR: Electronic Data Gathering, Analysis, and Retrieval system* [Data set]. https://www.sec.gov/edgar

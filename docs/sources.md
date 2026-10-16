@@ -52,7 +52,7 @@ All datasets and APIs used in this project's notebooks are documented here.
 
 - **Location:** <https://ai.google.dev/gemini-api>
 
-- **Summary:** Google's generative-model API, used at temperature 0 throughout. `gemini-3.5-flash-lite` serves three roles in the index-evaluation notebook (statistical adjudication, the final research decision, decision auditing) and six agent roles in the ticker-agent notebook (concept proposal, planning/routing, term-quality inspection, transmission-channel judgment, the final decision, and decision auditing); the model self-reports a March 2026 training-data cutoff. The proposal notebook additionally uses `gemini-3.1-flash-lite` for a zero-shot sentiment comparison and a monthly portfolio backtest. Replies are cached on disk keyed by prompt hash, so reruns make no calls.
+- **Summary:** Google's generative-model API, used at temperature 0 throughout. `gemini-3.5-flash-lite` serves three roles in the index-evaluation notebook (statistical adjudication, the final research decision, decision auditing) and nine agent roles in the ticker-agent notebook (concept proposal, planning/routing, term-quality investigation, transmission-channel judgment, pre-decision advocacy, the final decision, decision auditing, and outcome reflection); the model self-reports a March 2026 training-data cutoff. The proposal notebook and the EDA notebook additionally use batched zero-shot calls (`gemini-3.1-flash-lite` and `gemini-3.5-flash-lite` respectively) for sentiment comparisons, and the proposal notebook runs a monthly portfolio backtest. Replies are cached on disk keyed by prompt hash, so reruns make no calls.
 
 - **License:** Google Generative AI API Terms of Service.
 
@@ -77,3 +77,23 @@ All datasets and APIs used in this project's notebooks are documented here.
 - **License:** Public domain (US federal government data); SEC fair-access terms apply.
 
 - **Citation (APA 7):** U.S. Securities and Exchange Commission. (n.d.). *EDGAR: Electronic Data Gathering, Analysis, and Retrieval system* [Data set]. https://www.sec.gov/edgar
+
+## 8. Alpha Vantage
+
+- **Location:** <https://www.alphavantage.co> (free-tier REST API; the public `demo` key serves sample series)
+
+- **Summary:** A market-data API offering daily equity series, technical indicators, and real-time sentiment and news feeds under a free API key. The EDA probes it once with the public demo key to document capability: its daily price series duplicates the yfinance feed already in use, and its sentiment endpoints are live-window only, so it adds no archival data for the 2010–2020 corpus window and is not used downstream.
+
+- **License:** Alpha Vantage Terms of Use (free tier).
+
+- **Citation (APA 7):** Alpha Vantage. (n.d.). *Alpha Vantage APIs* [Computer software]. https://www.alphavantage.co
+
+## 9. NewsAPI.org
+
+- **Location:** <https://newsapi.org> (v2 REST API)
+
+- **Summary:** A news aggregation API. The free developer tier requires an API key and serves a rolling window of roughly 30 days of article history, so it cannot backfill the project's 2010–2020 evaluation window; the EDA documents the access gate and window limit, and the source is recorded as a live-only extension.
+
+- **License:** NewsAPI Terms of Service.
+
+- **Citation (APA 7):** NewsAPI. (n.d.). *NewsAPI.org* [Computer software]. https://newsapi.org

@@ -26,7 +26,7 @@ All datasets and APIs used in this project's notebooks are documented here.
 
 - **License:** MIT.
 
-- **Citation (APA 7):** Saqur, R. (2024). *NIFTY-LM: Financial news headlines dataset for LLMs* [Data set]. Hugging Face. https://huggingface.co/datasets/raeidsaqur/NIFTY (paper: arXiv:2405.09747)
+- **Citation (APA 7):** Saqur, R., Kato, K., Vinden, N., & Rudzicz, F. (2024). *NIFTY-LM: Financial news headlines dataset for LLMs* [Data set]. Hugging Face. https://huggingface.co/datasets/raeidsaqur/NIFTY (paper: arXiv:2405.09747)
 
 ## 3. yfinance
 
@@ -52,7 +52,7 @@ All datasets and APIs used in this project's notebooks are documented here.
 
 - **Location:** <https://ai.google.dev/gemini-api>
 
-- **Summary:** Google's generative-model API, used at temperature 0 throughout. `gemini-3.5-flash-lite` serves three roles in the index-evaluation notebook (statistical adjudication, the final research decision, decision auditing) and nine agent roles in the ticker-agent notebook (concept proposal, planning/routing, term-quality investigation, transmission-channel judgment, pre-decision advocacy, the final decision, decision auditing, and outcome reflection); the model self-reports a March 2026 training-data cutoff. The proposal notebook and the EDA notebook additionally use batched zero-shot calls (`gemini-3.1-flash-lite` and `gemini-3.5-flash-lite` respectively) for sentiment comparisons, and the proposal notebook runs a monthly portfolio backtest. Replies are cached on disk keyed by prompt hash, so reruns make no calls.
+- **Summary:** Google's generative-model API, used at temperature 0 throughout. In the ticker-agent notebook `gemini-3.5-flash-lite` serves the eight agent roles (concept proposal, planning and routing, term-quality investigation, transmission-channel judgment, pre-decision advocacy, the final decision, decision auditing, and outcome reflection). The proposal notebook uses `gemini-3.1-flash-lite` for its zero-shot sentiment comparison and its monthly portfolio backtest, and the EDA notebook uses `gemini-3.5-flash-lite` for its zero-shot comparison. Replies are cached on disk keyed by prompt hash, so reruns make no calls.
 
 - **License:** Google Generative AI API Terms of Service.
 
@@ -82,7 +82,7 @@ All datasets and APIs used in this project's notebooks are documented here.
 
 - **Location:** <https://www.alphavantage.co> (free-tier REST API; the public `demo` key serves sample series)
 
-- **Summary:** A market-data API offering daily equity series, technical indicators, and real-time sentiment and news feeds under a free API key. The EDA probes it once with the public demo key to document capability: its daily price series duplicates the yfinance feed already in use, and its sentiment endpoints are live-window only, so it adds no archival data for the 2010–2020 corpus window and is not used downstream.
+- **Summary:** A market-data API offering daily equity series, technical indicators, and real-time sentiment and news feeds under a free API key. The EDA probes it once with the public demo key: its daily price series duplicates the yfinance feed already in use and its sentiment endpoints are live-window only, so it adds no archival data for the 2010-2020 corpus window and is not used downstream.
 
 - **License:** Alpha Vantage Terms of Use (free tier).
 
@@ -92,7 +92,7 @@ All datasets and APIs used in this project's notebooks are documented here.
 
 - **Location:** <https://newsapi.org> (v2 REST API)
 
-- **Summary:** A news aggregation API. The free developer tier requires an API key and serves a rolling window of roughly 30 days of article history, so it cannot backfill the project's 2010–2020 evaluation window; the EDA documents the access gate and window limit, and the source is recorded as a live-only extension.
+- **Summary:** A news aggregation API. The free developer tier requires an API key and serves a rolling window of roughly 30 days of article history, so it cannot backfill the project's 2010-2020 evaluation window. The EDA documents the access gate and the source is recorded as a live-only extension.
 
 - **License:** NewsAPI Terms of Service.
 
